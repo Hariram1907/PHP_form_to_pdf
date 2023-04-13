@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IWT EXP 9</title>
+    <style>
+        body{
+            text-align: center;
+        }
+
+        form{
+            margin: 20px;
+        }
+
+        input[type=text]{
+            margin-bottom: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid black;
+            font-size: 15px;
+            font-family: 'Poppins', sans-serif;
+            width: 250px;
+            height: 40px;
+        }
+
+        a, input[type="submit"]{
+            border: 2px solid black;
+            border-radius: 7px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <form action="fetch.php" method="POST">
+            <input type="text" name="email" placeholder="Enter email">
+            <input type="submit" value="fetch">
+        </form>
+        <a href="index.html">Back</a>
+    </div>
+</body>
+</html>

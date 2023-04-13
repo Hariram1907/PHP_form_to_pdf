@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter&family=Poppins&display=swap" rel="stylesheet">
+    <!-- font-family: 'Bitter', serif;
+font-family: 'Poppins', sans-serif; -->
+    <title>IWT EXP-9</title>
+    <style>
+        body{
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+        }
+        div{
+            margin: 10px;
+        }
+        .form{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: baseline;
+            align-content: space-between;
+        }
+
+        .form > div{
+            width: 300px;
+            height: 530px;
+            border: 2px solid black;
+            border-radius: 15px;
+            margin: 10px;
+        }
+
+        .form > div div{
+            font-size: 15px;
+        }
+
+        .form .name{
+            height: fit-content;
+        }
+
+        .form > div div input[type=text],input[type=number],textarea,select{
+            margin-bottom: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid black;
+            font-size: 15px;
+            font-family: 'Poppins', sans-serif;
+            width: 250px;
+            height: 40px;
+        }
+
+        .form > div div input[type=radio],[type=date]
+        {
+            margin-bottom: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+
+        .form .photo{
+            width: 170px;
+            height: fit-content;
+            padding: 10px;
+            border: 2px solid black;
+            border-radius: 15px;
+        }
+
+        .submit input{
+            width: 120px;
+            height: fit-content;
+            background-color: black;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            border-radius: 6px;
+        }
+
+        a{
+            border: 2px solid black;
+            border-radius: 7px;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            background-color: black;
+            margin-left: 20px;
+        }
+
+        @media only screen and (max-width: 900px) {
+            .form{
+                flex-direction: column;
+            }
+
+            .form > div{
+            width:fit-content;
+            height: fit-content;
+            border: 2px solid black;
+            border-radius: 15px;
+            margin: 10px;
+            }
+
+            .photo{
+            
+            
+            margin-left: 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <form action="index.php" method="post" enctype="multipart/form-data">
+            
+            <div  class="form">
+                <div class="photo">
+                    <h2>Upload photo</h2>
+                    <input type="file" id="profimage" name="profimage" onchange="displayImage(this)">
+                    <div id="imagePreview"></div>
+                </div>
+                <div class="name">
+                    <h2>Personal Info</h2>
+                    <div>
+                    <label for="fname">First Name :</label><br>
+                    <input type="text" name="fname" id="fname" required>
+                    </div>
+                    <div>
+                    <label for="mname">Middle Name :</label><br>
+                    <input type="text" name="mname" id="mname">
+                    </div>
+                    <div>
+                    <label for="lname">Last Name :</label><br>
+                    <input type="text" name="lname" id="lname" required>
+                    </div>
+                    <div>
+                    <label for="dob">Date of Birth :</label>
+                    <input type="date" name="dob" id="dob" required>
+                    </div>
+                    <div>
+                    <label for="gender">Gender :</label>
+                    <input type="radio" name="gender" value="male">Male
+                    <input type="radio" name="gender" value="female">Female
+                    </div>
+                    <div>
+                    <label for="bldgroup">Blood Group :</label><br>
+                    <select name="bldgroup" id="bldgroup" required>
+                        <option value="">select</option>
+                        <option value="O+">O +</option>
+                        <option value="O-">O -</option>
+                        <option value="A+">A +</option>
+                        <option value="A-">A -</option>
+                        <option value="B+">B +</option>
+                        <option value="B-">B -</option>
+                        <option value="AB+">AB +</option>
+                        <option value="AB-">AB -</option>
+                    </select>
+                    </div>
+                </div>
+
+                <div class="contact">
+                    <h2>Contact Info</h2>
+                    <div>
+                    <label for="phone">Phone Number :</label><br>
+                    <input type="text" maxlength="10" name="phone" id="phone" required>
+                    </div>
+                    <div>
+                    <label form="cemail">College Email-Id :</label><br>
+                    <input type="text" name="cemail" id="cemail" required>
+                    </div>
+                    <div>
+                    <label form="pemail">Personal Email-Id :</label><br>
+                    <input type="text" name="pemail" id="pemail" required>
+                    </div>
+                    <div>
+                    <label for="addr">Address :</label><br>
+                    <textarea name="addr" id="addr" required></textarea>
+                    </div> 
+                </div>
+
+                <div class="education">
+                    <h2>Educational details</h2>
+                    <div>
+                    <label for="sslc">SSLC Percentage :</label><br>
+                    <input type="number" name="sslc" id="sslc" required>
+                    </div>
+                    <div>
+                    <label for="hsc">12th/equivalent percentage :</label><br>
+                    <input type="number" name="hsc" id="hsc" required>
+                    </div>
+                    <div>
+                    <label for="cgpa">Current CGPA :</label><br>
+                    <input type="number" name="cgpa" id="cgpa" required>
+                    </div>
+                    <div>
+                    <label for="backlog">Current No. of Arrears :</label><br>
+                    <input type="number" name="backlog" id="backlog" required>
+                    </div>
+                </div>
+                
+                <div class="parentinfo">
+                    <h2>Parent Information</h2>
+                    <div>
+                    <label for="fathername">Father Name :</label><br>
+                    <input type="text" name="fathername" id="fathername" required>
+                    </div>
+                    <div>
+                    <label for="mothername">Mother Name :</label><br>
+                    <input type="text" name="mothername" id="mothername" required>
+                    </div>
+                    <div>
+                    <label for="fphone">Father Phone Number :</label><br>
+                    <input type="text" maxlength="10" name="fphone" id="fphone" required>
+                    </div>
+                    <div>
+                    <label for="mphone">Mother Phone Number :</label><br>
+                    <input type="text" maxlength="10" name="mphone" id="mphone" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="submit">
+                <input type="submit" value="Save">
+                <a href="index.html">Back</a>
+            </div>
+
+        </form> 
+    </div>
+
+    <script>
+        function displayImage(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+            document.getElementById("imagePreview").innerHTML = "<img src='" + e.target.result + "' width='150'>";
+          }
+
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+    </script>
+</body>
+</html>
